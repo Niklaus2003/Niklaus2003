@@ -25,5 +25,6 @@ Python | OpenCV | JavaScript | React | Node.js
 ## 📫 Connect With Me
 **LinkedIn:** www.linkedin.com/in/aaron-francis-00b41727a  
 **Email:** aaronofficial19@gmail.com
+**Portfolio:** https://aaronfrancis.netlify.app/
 
 <h3 align="center">✨ Jack of all trades, forever curious 🌙</h3>
