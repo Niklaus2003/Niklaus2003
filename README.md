@@ -1,30 +1,94 @@
-<h1 align="center">✨ Hey there, I'm Aaron Francis 👋</h1>
-<h3 align="center">Electronics Engineer exploring AI, Voice Tech, Agents & Intelligent Systems</h3>
+<div align="center">
+
+<!-- Terminal Header: ASCII Portrait + Neofetch Info Card -->
+<h3><code>aaron@github ~ $ whoami --verbose</code></h3>
+
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top" align="center">
+      <img src="./aaron-ascii.svg" width="370" alt="Aaron Francis — Monochrome ASCII Portrait" />
+    </td>
+    <td valign="top" align="center">
+      <img src="./info-card.svg" width="490" alt="Aaron Francis — Neofetch Info Card" />
+    </td>
+  </tr>
+</table>
+
+<br>
+<br>
+
+<!-- Live Daily Contribution Heatmap -->
+<h3><code>aaron@github ~ $ ./contributions.sh --live-heatmap</code></h3>
+
+<img src="./contrib-heatmap.svg" width="860" alt="Aaron Francis — GitHub Contribution Calendar (Auto-refreshed daily)" />
+
+<br>
+<br>
+
+<!-- Snake Game Project Matrix -->
+<h3><code>aaron@github ~ $ ./snake_matrix.sh --play</code></h3>
+
+<img src="./projects-matrix.svg" width="860" alt="Snake Game Project Matrix — Applications by Aaron Francis" />
+
+<br>
+<br>
+
+<!-- Terminal Applications Manifest -->
+<h3><code>aaron@github ~ $ cat ./applications.json</code></h3>
+
+</div>
+
+```json
+{
+  "engineer": "Aaron Francis (@Niklaus2003)",
+  "discipline": "Electronics & Communication Graduate blending Hardware, AI & Software",
+  "applications": [
+    {
+      "module": "🎥 Computer Vision & Pose Tracking",
+      "capabilities": "Real-time edge/feature detection, human pose estimation, and gesture mapping",
+      "technologies": ["Python", "OpenCV", "MediaPipe", "PyTorch", "NumPy"]
+    },
+    {
+      "module": "🎤 Voice AI & Autonomous Agents",
+      "capabilities": "Voice-enabled personal assistants, speech recognition (STT/TTS), and agentic workflows",
+      "technologies": ["Voice AI", "LLMs", "LangChain", "FastAPI", "STT/TTS"]
+    },
+    {
+      "module": "🤖 Applied ML & Neural Systems",
+      "capabilities": "Machine learning experimentation, inference benchmarking, and multimodal embeddings",
+      "technologies": ["PyTorch", "Transformers", "Scikit-Learn", "Model Optimization"]
+    },
+    {
+      "module": "🌐 Full-Stack & Embedded I/O Platforms",
+      "capabilities": "Interactive web dashboards connecting embedded AI models to responsive frontend UIs",
+      "technologies": ["React", "Node.js", "Express", "Tailwind CSS", "REST APIs", "IoT"]
+    }
+  ],
+  "philosophy": "Creating is my way of learning, experimenting is my way of improving."
+}
+```
+
+<div align="center">
+
+<br>
+
+<!-- Terminal Links & Social Badges -->
+<h3><code>aaron@github ~ $ ./connect.sh</code></h3>
 
 <p align="center">
-  Profile Views: <img src="https://komarev.com/ghpvc/?username=aaron-francis&label=Views&color=7F3FBF&style=flat-square" alt="profile views" />
+  <a href="https://aaronfrancis.netlify.app/"><img src="https://img.shields.io/badge/Portfolio-aaronfrancis.netlify.app-0d1117?style=for-the-badge&logo=netlify&logoColor=00C7B7" alt="Portfolio" /></a>
+  &nbsp;
+  <a href="https://www.linkedin.com/in/aaron-francis-00b41727a"><img src="https://img.shields.io/badge/LinkedIn-Aaron_Francis-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  &nbsp;
+  <a href="mailto:aaronofficial19@gmail.com"><img src="https://img.shields.io/badge/Email-aaronofficial19%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+  &nbsp;
+  <img src="https://komarev.com/ghpvc/?username=Niklaus2003&label=Profile_Views&color=7F3FBF&style=for-the-badge" alt="Profile Views" />
 </p>
 
-## 🔹 About Me
-🛠 B.Tech ECE graduate blending **electronics, AI, and software**.  
-💡 I work on **Computer Vision**, **Voice AI**, **Chatbots**, and **Agent-based Systems**.  
-🌱 Currently learning **frontend development**.  
-🎯 Curious jack-of-all-trades — I love building and understanding how things work.
+<br>
 
-## 🧩 Tech Stack
-Python | OpenCV | JavaScript | React | Node.js
+<p align="center">
+  <em>✨ Jack of all trades, forever curious 🌙</em>
+</p>
 
-## 🚀 My Projects
-🎥 **Computer Vision** – Image processing, object detection, pose estimation  
-🎤 **Voice Tech & Agents** – Voice-based AI assistants, chatbots  
-🤖 **AI & ML** – Machine learning experiments  
-🌐 **Full-Stack Experiments** – React + Node.js mini-projects to make ideas interactive
-
-*"Creating is my way of learning, experimenting is my way of improving."*
-
-## 📫 Connect With Me
-**LinkedIn:** www.linkedin.com/in/aaron-francis-00b41727a  
-**Email:** aaronofficial19@gmail.com
-**Portfolio:** https://aaronfrancis.netlify.app/
-
-<h3 align="center">✨ Jack of all trades, forever curious 🌙</h3>
+</div>

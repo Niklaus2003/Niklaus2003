@@ -1,0 +1,57 @@
+name: Update Profile Art & Heatmap
+
+# Refreshes the contribution graph SVG, data, and snake animations daily from real data.
+# Runs daily, plus on pushes to main, plus on manual dispatch.
+
+on:
+  schedule:
+    - cron: "17 6 * * *"   # ~06:17 UTC every day
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-art:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4
+
+      - name: Scrape live contributions & build JSON
+        env:
+          GH_PROFILE_USER: ${{ github.repository_owner }}
+        run: python scripts/fetch_contributions.py
+
+      - name: Render contribution heatmap SVG
+        run: python scripts/render_heatmap_svg.py
+
+      - name: Update snake project matrix SVG
+        run: python scripts/make_snake_project_matrix.py
+
+      - name: Generate GitHub contribution grid snake
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/snake.svg
+            dist/snake-dark.svg?palette=github-dark
+        continue-on-error: true
+
+      - name: Commit & push updated art
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: refresh profile art & contributions [skip ci]"
+          file_pattern: "data/contributions.json contrib-heatmap.svg projects-matrix.svg dist/snake.svg dist/snake-dark.svg"
