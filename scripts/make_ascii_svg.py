@@ -79,7 +79,7 @@ def generate():
         f'<circle cx="{PAD_X + 38}" cy="{TITLE_H/2}" r="6.5" fill="#ffbd2e"/>\n',
         f'<circle cx="{PAD_X + 60}" cy="{TITLE_H/2}" r="6.5" fill="#27c93f"/>\n',
         f'<text class="term-mono" x="{CANVAS_W/2}" y="{TITLE_H/2 + 5}" fill="#8b949e" font-size="16" font-weight="600" text-anchor="middle">'
-        f'aaron@github: ~$ ./portrait.sh --character helmet</text>\n',
+        f'aaron@github: ~$ whoami --portrait</text>\n',
         f'<g transform="translate({PAD_X}, {TITLE_H})">\n',
         f'  <rect width="{ART_W}" height="{ART_H}" fill="#030308"/>\n',
         '  <g clip-path="url(#portrait_wipe)">\n',

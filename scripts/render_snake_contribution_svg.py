@@ -118,8 +118,8 @@ def generate_snake_heatmap():
         path.append((cur_c, 0))
 
     total_steps = len(path)
-    step_dur = 0.038  # seconds per cell step
-    total_dur = round(total_steps * step_dur, 2)  # ~16.5s loop
+    step_dur = 0.095  # seconds per cell step (~10.5 steps/s, authentic classic snake speed)
+    total_dur = round(total_steps * step_dur, 2)  # ~41s deliberate loop
 
     # Map each (c, r) cell to the time it gets eaten
     eaten_times = {}
@@ -163,7 +163,7 @@ def generate_snake_heatmap():
         parts.append(f'<circle cx="{20 + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
 
     parts.append(f'<text x="{W/2}" y="{TITLEBAR_H/2 + 4}" fill="{MUTED}" font-size="12" font-weight="600" text-anchor="middle">'
-                 f'aaron@github: ~/arcade/snake-contributions --loop</text>')
+                 f'aaron@github: ~$ snake --contributions</text>')
 
     # Month Labels
     for ci, label in month_labels:
@@ -192,7 +192,7 @@ def generate_snake_heatmap():
                 # FOOD SLOT: Starts active, gets eaten when snake arrives, respawns at loop end
                 t_eat = eaten_times.get((ci, ri), 0.0)
                 t_eat_ratio = round(t_eat / total_dur, 4)
-                t_eat_next = round(min(0.95, t_eat_ratio + 0.005), 4)
+                t_eat_next = round(min(0.95, t_eat_ratio + 0.0025), 4)
 
                 parts.append(f'<g transform="translate({cx}, {cy})">')
                 # Underneath empty base

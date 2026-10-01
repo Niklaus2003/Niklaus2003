@@ -19,7 +19,7 @@
 <circle cx="36" cy="23.0" r="6.5" fill="#ff5f56"/>
 <circle cx="58" cy="23.0" r="6.5" fill="#ffbd2e"/>
 <circle cx="80" cy="23.0" r="6.5" fill="#27c93f"/>
-<text class="term-mono" x="800.0" y="28.0" fill="#8b949e" font-size="16" font-weight="600" text-anchor="middle">aaron@github: ~$ ./portrait.sh --character helmet</text>
+<text class="term-mono" x="800.0" y="28.0" fill="#8b949e" font-size="16" font-weight="600" text-anchor="middle">aaron@github: ~$ whoami --portrait</text>
 <g transform="translate(20, 46)">
   <rect width="1560" height="1044" fill="#030308"/>
   <g clip-path="url(#portrait_wipe)">

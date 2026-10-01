@@ -18,23 +18,15 @@
 <br>
 
 <!-- Live Snake Contribution Calendar -->
-<h3><code>aaron@github ~ $ ./snake_contributions.sh --eat-food-loop</code></h3>
+<h3><code>aaron@github ~ $ snake --contributions</code></h3>
 
 <img src="./contrib-heatmap.svg" width="860" alt="Aaron Francis — Live Snake Contribution Calendar (Eating commits in a loop)" />
 
 <br>
 <br>
 
-<!-- Snake Game Project Matrix -->
-<h3><code>aaron@github ~ $ ./snake_matrix.sh --play</code></h3>
-
-<img src="./projects-matrix.svg" width="860" alt="Snake Game Project Matrix — Applications by Aaron Francis" />
-
-<br>
-<br>
-
 <!-- Terminal Applications Manifest -->
-<h3><code>aaron@github ~ $ cat ./applications.json</code></h3>
+<h3><code>aaron@github ~ $ applications</code></h3>
 
 </div>
 
@@ -73,7 +65,7 @@
 <br>
 
 <!-- Terminal Links & Social Badges -->
-<h3><code>aaron@github ~ $ ./connect.sh</code></h3>
+<h3><code>aaron@github ~ $ connect --socials</code></h3>
 
 <p align="center">
   <a href="https://aaronfrancis.netlify.app/"><img src="https://img.shields.io/badge/Portfolio-aaronfrancis.netlify.app-0d1117?style=for-the-badge&logo=netlify&logoColor=00C7B7" alt="Portfolio" /></a>
