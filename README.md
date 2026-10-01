@@ -6,10 +6,10 @@
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td valign="top" align="center">
-      <img src="./aaron-ascii.svg" width="370" alt="Aaron Francis — Monochrome ASCII Portrait" />
+      <img src="./aaron-ascii.svg" width="430" alt="Aaron Francis — Monochrome ASCII Portrait" />
     </td>
     <td valign="top" align="center">
-      <img src="./info-card.svg" width="490" alt="Aaron Francis — Neofetch Info Card" />
+      <img src="./info-card.svg" width="430" alt="Aaron Francis — Neofetch Info Card" />
     </td>
   </tr>
 </table>
@@ -17,10 +17,10 @@
 <br>
 <br>
 
-<!-- Live Daily Contribution Heatmap -->
-<h3><code>aaron@github ~ $ ./contributions.sh --live-heatmap</code></h3>
+<!-- Live Snake Contribution Calendar -->
+<h3><code>aaron@github ~ $ ./snake_contributions.sh --eat-food-loop</code></h3>
 
-<img src="./contrib-heatmap.svg" width="860" alt="Aaron Francis — GitHub Contribution Calendar (Auto-refreshed daily)" />
+<img src="./contrib-heatmap.svg" width="860" alt="Aaron Francis — Live Snake Contribution Calendar (Eating commits in a loop)" />
 
 <br>
 <br>

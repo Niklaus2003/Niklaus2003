@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Prepare a portrait photo for clean ASCII conversion:
-  1. Downscale large images (for fast, high-quality segmentation)
-  2. Remove background (rembg or smart OpenCV GrabCut fallback)
-  3. Boost LOCAL contrast (CLAHE)
-  4. Composite onto pure white so the background maps to space characters
+Prepare Aaron Francis's avatar image faithfully without destructive cropping
+or background cutting:
+  1. Load full avatar.jpg (preserves the complete original artwork/photo)
+  2. Enhance local contrast and micro-details with CLAHE
+  3. Clean up ultra-low noise so pure black background maps to spaces
 
-Output: source-prepped.png (grayscale), consumed by make_ascii_svg.py.
+Output: source-prepped.png, consumed by make_ascii_svg.py.
 """
 import os
 import sys
@@ -16,77 +16,34 @@ import numpy as np
 from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_INP = os.path.join(HERE, "..", "avatar.jpg")
-if not os.path.exists(DEFAULT_INP):
-    DEFAULT_INP = os.path.join(HERE, "..", "avatar.png")
-if not os.path.exists(DEFAULT_INP):
-    DEFAULT_INP = os.path.join(HERE, "..", "source-photo.jpg")
-
-INP = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_INP
+INP = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "..", "avatar.jpg")
 OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, "..", "source-prepped.png")
 
 
-def isolate_subject(img_path):
-    pil_img = Image.open(img_path).convert("RGB")
-    
-    # Pre-scale to reasonable size for GrabCut / CLAHE performance & quality
-    max_dim = 800
-    w, h = pil_img.size
-    if max(w, h) > max_dim:
-        scale = max_dim / max(w, h)
-        pil_img = pil_img.resize((int(w * scale), int(h * scale)), Image.Resampling.LANCZOS)
-    
-    # Try rembg if installed
-    try:
-        from rembg import remove
-        print("Using rembg for neural background removal...")
-        rgba = pil_img.convert("RGBA")
-        cut = remove(rgba)
-        rgb = np.array(cut.convert("RGB"))
-        alpha = np.array(cut.split()[-1])
-        return rgb, alpha
-    except (ImportError, Exception) as e:
-        print(f"rembg not active ({e}); using smart OpenCV GrabCut segmentation...")
-        img = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
-        h, w = img.shape[:2]
-        mask = np.zeros((h, w), np.uint8)
-        bgd_model = np.zeros((1, 65), np.float64)
-        fgd_model = np.zeros((1, 65), np.float64)
-
-        # Foreground box with 6% margin
-        rect = (int(w * 0.06), int(h * 0.04), int(w * 0.88), int(h * 0.92))
-        cv2.grabCut(img, mask, rect, bgd_model, fgd_model, 5, cv2.GC_INIT_WITH_RECT)
-        mask2 = np.where((mask == cv2.GC_FGD) | (mask == cv2.GC_PR_FGD), 255, 0).astype("uint8")
-
-        rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        return rgb, mask2
-
-
-def main():
-    if not os.path.exists(INP):
-        print(f"Error: input file '{INP}' not found.")
+def prep(image_path, out_path):
+    if not os.path.exists(image_path):
+        print(f"Error: {image_path} not found.")
         sys.exit(1)
 
-    print(f"Processing image: {INP}")
-    rgb, alpha = isolate_subject(INP)
+    print(f"Faithfully processing full image {image_path}...")
+    pil_img = Image.open(image_path).convert("RGB")
+    arr = np.array(pil_img)
+    bgr = cv2.cvtColor(arr, cv2.COLOR_RGB2BGR)
+    gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
 
-    # 2. Local contrast enhancement (CLAHE)
-    gray = cv2.cvtColor(rgb, cv2.COLOR_RGB2GRAY)
+    # Apply CLAHE to balance contrast so all subject details pop
     clahe = cv2.createCLAHE(clipLimit=2.6, tileGridSize=(8, 8))
-    gray = clahe.apply(gray)
+    enhanced = clahe.apply(gray)
 
-    # Lift mids so the face lands in the sparse, crisp character spectrum
-    gray = cv2.convertScaleAbs(gray, alpha=1.05, beta=18)
+    # Slight lift so midtones stand out
+    lifted = cv2.convertScaleAbs(enhanced, alpha=1.08, beta=8)
 
-    # 3. Composite onto pure white background using feathered alpha mask
-    mask = alpha.astype(np.float32) / 255.0
-    mask = cv2.GaussianBlur(mask, (0, 0), 1.0)
-    out = gray.astype(np.float32) * mask + 255.0 * (1.0 - mask)
-    out = np.clip(out, 0, 255).astype(np.uint8)
+    # Clean dark floor (values < 22 -> 0 so background is crisp pure space)
+    cleaned = np.where(lifted < 22, 0, lifted)
 
-    Image.fromarray(out, mode="L").save(OUT)
-    print("wrote", OUT, out.shape)
+    Image.fromarray(cleaned, mode="L").save(out_path)
+    print(f"Wrote faithful prepped image to {out_path} with size {cleaned.shape}")
 
 
 if __name__ == "__main__":
-    main()
+    prep(INP, OUT)

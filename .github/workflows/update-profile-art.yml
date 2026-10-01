@@ -35,8 +35,8 @@ jobs:
           GH_PROFILE_USER: ${{ github.repository_owner }}
         run: python scripts/fetch_contributions.py
 
-      - name: Render contribution heatmap SVG
-        run: python scripts/render_heatmap_svg.py
+      - name: Render contribution snake calendar SVG
+        run: python scripts/render_snake_contribution_svg.py
 
       - name: Update snake project matrix SVG
         run: python scripts/make_snake_project_matrix.py
