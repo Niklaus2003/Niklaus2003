@@ -121,11 +121,18 @@ def build_data(days):
 
 
 if __name__ == "__main__":
-    days = fetch_days()
-    data = build_data(days)
-    os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
-    with open(OUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2)
-    print(f"wrote {OUT_PATH}: {data['total_contributions']} contributions, "
-          f"current streak {data['current_streak']['length']}, "
-          f"longest streak {data['longest_streak']['length']}")
+    try:
+        days = fetch_days()
+        data = build_data(days)
+        os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
+        with open(OUT_PATH, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+        print(f"wrote {OUT_PATH}: {data['total_contributions']} contributions, "
+              f"current streak {data['current_streak']['length']}, "
+              f"longest streak {data['longest_streak']['length']}")
+    except Exception as e:
+        print(f"Warning: could not fetch live contributions ({e}).", file=sys.stderr)
+        if os.path.exists(OUT_PATH):
+            print(f"Using existing cached {OUT_PATH}", file=sys.stderr)
+            sys.exit(0)
+        sys.exit(1)
