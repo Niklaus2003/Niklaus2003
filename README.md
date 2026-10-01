@@ -6,7 +6,7 @@
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td valign="top" align="center">
-      <img src="./aaron-ascii.svg" width="430" alt="Aaron Francis — Monochrome ASCII Portrait" />
+      <img src="./aaron-ascii.svg" width="430" alt="Aaron Francis — Terminal ASCII Helmet Portrait" />
     </td>
     <td valign="top" align="center">
       <img src="./info-card.svg" width="430" alt="Aaron Francis — Neofetch Info Card" />
