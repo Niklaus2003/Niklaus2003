@@ -281,7 +281,7 @@ svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
         Interactive web applications connecting ML inference to sleek UIs.
       </text>
       <text x="40" y="58" fill="{YELLOW}" font-size="10.5">
-        Stack: <tspan fill="{INK}">React · Node.js · Express · REST APIs · Tailwind · IoT</tspan>
+        Stack: <tspan fill="{INK}">Embedded C · Microcontrollers · React · REST APIs · IoT</tspan>
       </text>
     </g>
 

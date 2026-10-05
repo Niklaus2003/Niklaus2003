@@ -51,9 +51,9 @@
       "technologies": ["PyTorch", "Transformers", "Scikit-Learn", "Model Optimization"]
     },
     {
-      "module": "🌐 Full-Stack & Embedded I/O Platforms",
-      "capabilities": "Interactive web dashboards connecting embedded AI models to responsive frontend UIs",
-      "technologies": ["React", "Node.js", "Express", "Tailwind CSS", "REST APIs", "IoT"]
+      "module": "⚡ Embedded Systems & IoT Platforms",
+      "capabilities": "Firmware programming, microcontroller interfacing, and connecting embedded AI models to web UIs",
+      "technologies": ["Embedded C", "Microcontrollers", "IoT", "React", "REST APIs"]
     }
   ],
   "philosophy": "Creating is my way of learning, experimenting is my way of improving."

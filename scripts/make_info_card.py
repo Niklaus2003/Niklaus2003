@@ -17,7 +17,7 @@ W, H = 480, 360
 PAD = 20
 TITLEBAR_H = 30
 KEY_X = PAD
-VAL_X = PAD + 94
+VAL_X = PAD + 104
 LINE_H = 18.5
 
 BG = "#0d1117"
@@ -37,10 +37,10 @@ ROWS = [
     ("kv", "Focus", "Vision AI · Voice Tech · Agents"),
     ("gap",),
     ("sec", "Tech Stack"),
-    ("kv", "Languages", "Python, JavaScript, TypeScript, C/C++"),
+    ("kv", "Languages", "Python, Embedded C, JavaScript"),
     ("kv", "Vision & AI", "OpenCV, PyTorch, MediaPipe, Deep Learning"),
     ("kv", "Voice & Agts", "Voice AI, STT / TTS, LLMs, LangChain, FastAPI"),
-    ("kv", "Full Stack", "React, Node.js, Express, Tailwind, REST APIs"),
+    ("kv", "Embedded & IoT", "Embedded C, Microcontrollers, IoT, React"),
     ("gap",),
     ("sec", "Highlights"),
     ("bul", "Real-time Object Detection & Pose Estimation"),
